@@ -1,0 +1,74 @@
+name: boring-dark
+label: "Boring Dark"
+description: "Flat, silent dark. No noise. No vignette. No artisanal fonts."
+
+palette:
+  background:
+    hex: "#0d1117"
+    alpha: 1
+  midground:
+    hex: "#e0e0e0"
+    alpha: 1
+  foreground:
+    hex: "#ffffff"
+    alpha: 0
+  warmGlow: "rgba(0, 0, 0, 0)"
+  noiseOpacity: 0
+
+typography:
+  fontSans: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+  fontMono: 'ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace'
+  baseSize: "14px"
+  lineHeight: "1.5"
+  letterSpacing: "0"
+
+layout:
+  radius: "0.375rem"
+  density: "comfortable"
+
+colorOverrides:
+  card: "#161b22"
+  border: "#30363d"
+  input: "#21262d"
+  muted: "#161b22"
+  mutedForeground: "#8b949e"
+
+# Override the backdrop filler blend mode via the component style CSS var
+componentStyles:
+  backdrop:
+    fillerBlendMode: "normal"
+    fillerOpacity: "0"
+
+customCSS: |
+  /* == FONTS ==
+     Replace all Nous DS display fonts with system sans-serif. */
+  .font-mondwest, [class*="font-mondwest"],
+  .font-expanded, [class*="font-expanded"],
+  .font-compressed, [class*="font-compressed"] {
+    font-family: var(--theme-font-sans) !important;
+    font-variant: normal !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  /* == BACKDROP ==
+     Override the difference blend mode that creates the teal tint. */
+  [style*="mix-blend-mode: difference"] {
+    mix-blend-mode: normal !important;
+  }
+
+  /* Hide the artisanal filler background jpeg */
+  .theme-default-filler {
+    display: none !important;
+  }
+
+  /* Kill warm vignette */
+  [style*="radial-gradient"] {
+    opacity: 0 !important;
+  }
+
+  /* Normalize blend-lighter on headings to prevent wash-out */
+  .blend-lighter {
+    mix-blend-mode: normal !important;
+  }

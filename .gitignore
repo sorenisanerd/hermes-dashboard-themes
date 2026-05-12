@@ -1,0 +1,9 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Shell artifacts
+*.log
+
+# Optional local test downloads
+/tmp/
