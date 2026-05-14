@@ -73,3 +73,15 @@ customCSS: |
   .blend-lighter {
     mix-blend-mode: normal !important;
   }
+
+  /* == FONT SIZES ==
+     Neutralise every Tailwind arbitrary-value text-[*] override so the
+     theme's baseSize actually takes effect.  text-[#ffe6cb] and similar
+     colour-only classes pass through unaffected — font-size is a
+     separate property. */
+  [class*="text-["] {
+    font-size: inherit !important;
+  }
+  /*  .xterm-rows {
+    font-size: 15px !important;
+  } */
