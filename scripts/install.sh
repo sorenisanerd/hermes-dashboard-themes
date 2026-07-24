@@ -20,11 +20,11 @@ for theme in boring-dark boring-light; do
 done
 
 if command -v hermes >/dev/null 2>&1; then
-  hermes config set display.dashboard_theme "$DEFAULT_THEME"
+  hermes config set dashboard.theme "$DEFAULT_THEME"
   echo "Installed themes and set default to: $DEFAULT_THEME"
   echo "Open the dashboard theme switcher to toggle between them."
 else
   echo "Installed themes to $THEME_DIR"
   echo "Hermes CLI not found on PATH, so the default theme was not changed."
-  echo "If you want, run: hermes config set display.dashboard_theme $DEFAULT_THEME"
+  echo "If you want, run: hermes config set dashboard.theme $DEFAULT_THEME"
 fi
